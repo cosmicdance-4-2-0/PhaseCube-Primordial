@@ -1,599 +1,319 @@
-PhaseCube Field 0.2.a1
-Relational Flux Lattice: A Minimal Event-Driven Substrate for Persistent Structure and Emergent Knot-Objects
+# PhaseCube Field 0.2.a1  
+## Relational Flux Lattice — A Minimal Event-Driven Substrate for Persistent Structure and Emergent Knot-Objects
 
-Author: Christopher “Kisuul” Lohman (concept origin)
-Draft: 0.2.a1 (formal design paper)
-Scope: Single-agent proof-of-concept (POC) simulator; browser-runnable; minimal ontology → minimal dynamics.
+**Status:** Proof-of-Concept (POC) design paper  
+**Primary intent:** browser-runnable, single-agent sim; minimal ontology → minimal dynamics  
+**Author (concept origin):** Christopher “Kisuul” Lohman  
+**Draft:** 0.2.a1
 
-Abstract
+> **Tagline:** *The Universe is the Universal Computer—and the simulation it is running.*
 
-PhaseCube Field is a minimal, event-driven lattice model intended to explore how persistent structure can arise in a substrate constrained to avoid absorbing extremes. The model operates on a binary computational substrate while approximating ternary flux as a process rather than a stored digit. Its guiding ontology treats reality as difference + relation under balance constraints: no privileged global tick; only local “tocks” (events). Stable “objects” arise not as primitive atoms but as metastable knots in relational gradients, formed dynamically at branch/intersect/pinch points. A key conjecture is that once a knot closes over itself, it can host a localized instance of the same relational grammar with new effective degrees of freedom (e.g., charge/spin/phase), enabling force-like behaviors (EM/plasma analogs) as matter effects rather than primitive laws.
+---
 
-1. Intent and Non-Goals
-1.1 Intent
+## Table of Contents
+- [Abstract](#abstract)
+- [1. Intent and Non-Goals](#1-intent-and-non-goals)
+- [2. Ontological Postulates (Operationalized)](#2-ontological-postulates-operationalized)
+- [3. Minimal Layer Stack (POC Constraint)](#3-minimal-layer-stack-poc-constraint)
+- [4. Substrate and Topology](#4-substrate-and-topology)
+- [5. Flux in a Binary Substrate](#5-flux-in-a-binary-substrate)
+- [6. Core Local Rule Family](#6-core-local-rule-family)
+- [7. Anti-Singularity: Shedding and Redistribution](#7-anti-singularity-shedding-and-redistribution)
+- [8. Dynamic Knotting and the Matter Boundary](#8-dynamic-knotting-and-the-matter-boundary)
+- [9. Recursion: “One Force” Running an Instance of Itself](#9-recursion-one-force-running-an-instance-of-itself)
+- [10. Observer Operator](#10-observer-operator)
+- [11. Expected Phenomenology](#11-expected-phenomenology)
+- [12. Diagnostics (Minimal, Human-Friendly)](#12-diagnostics-minimal-human-friendly)
+- [13. Parameters (POC Defaults)](#13-parameters-poc-defaults)
+- [14. Limitations and Open Questions](#14-limitations-and-open-questions)
+- [15. Roadmap (Incremental)](#15-roadmap-incremental)
+- [Closing](#closing)
 
-Produce persistent macroscopic structure (islands / filaments / webs / voids) with ongoing microscopic motion.
+---
 
-Avoid singularities: no perfect uniform lock (max coherence) and no perfect indistinguishability (null collapse).
+## Abstract
 
-Keep a three-layer architecture (Dyad / Triad / Observer) suitable for a single-agent POC.
+PhaseCube Field is a minimal, event-driven lattice model intended to explore how **persistent structure** can arise in a substrate constrained to avoid absorbing extremes. The model operates on a **binary computational substrate** while approximating **ternary flux** as a *process* rather than a stored digit. Its guiding ontology treats reality as **difference + relation** under balance constraints: no privileged global tick; only local “tocks” (events). Stable “objects” arise not as primitive atoms but as **metastable knots in relational gradients**, formed dynamically at branch/intersect/pinch points.
 
-1.2 Non-Goals
+A key conjecture is that once a knot closes over itself, it can host a localized instance of the same relational grammar with new effective degrees of freedom (e.g., charge/spin/phase), enabling force-like behaviors (EM/plasma analogs) as **matter effects** rather than primitive laws.
 
-Not a literal physical cosmology claim; this is a modeling lens.
+---
 
-Not a full matter model yet; v0.2 focuses on force-process dynamics and knot formation gates.
+## 1. Intent and Non-Goals
 
-Not aiming for quantitative match to EM/plasma; only structural analogies (qualitative).
+### 1.1 Intent
+- Produce persistent macroscopic structure (islands / filaments / webs / voids) with ongoing microscopic motion.
+- Forbid singularities: no perfect “infinite curvature” states; instead: nodal intersects, pinches, and redistribution.
+- Maintain a **three-layer** architecture suitable for a single-agent POC.
 
-2. Ontological Postulates (Operationalized)
+### 1.2 Non-Goals
+- Not a literal physical cosmology claim; this is a modeling lens.
+- Not a full matter model yet; v0.2 focuses on **force-process dynamics** and **knot formation gates**.
+- Not aiming for quantitative EM/plasma fidelity; only qualitative structural analogies.
+
+---
+
+## 2. Ontological Postulates (Operationalized)
 
 These are treated as modeling axioms; they are not asserted as empirical truth.
 
-2.1 No global ticks
+### 2.1 No global ticks
+Physics is defined by **local update events**; any render cadence is measurement, not fundamental time.
 
-Physics is defined by local update events; any render cadence is measurement, not fundamental time.
+> *No global ticks. Just infinite recursive tocks.*
 
-No global ticks. Just infinite recursive tocks.
+### 2.2 No absolute points, no absolute lines
+“Entities” are observer-robust patterns (“clouds”), and “trajectories” are gradients/flows of relation, not primitive geometry.
 
-2.2 No absolute points, no absolute lines
-
-“Entities” are coarse-grained, observer-robust patterns (“clouds”), and “trajectories” are gradients/flows of relation, not primitive geometry.
-
-2.3 Balance constraints (no absorbing extremes)
-
+### 2.3 Balance constraints (no absorbing extremes)
 The system must not converge to either:
+- **perfect coherence** (maximal lock; “fries/freezes” the manifold), nor
+- **perfect cancellation** (no distinguishable gradients; “rip a new 0 hole”).
 
-perfect coherence (a locked maximal state), nor
+Operationally: the dynamics must include **anti-singularity shedding** and **redistribution**.
 
-perfect cancellation (no distinguishable gradients).
+---
 
-Operationally: the dynamics must include anti-singularity shedding and redistribution.
+## 3. Minimal Layer Stack (POC Constraint)
 
-3. Minimal Layer Stack (POC Constraint)
-Layer 1 — Dyad (Difference)
+### Layer 1 — Dyad (Difference)
+A published polarity in a binary substrate.
 
-A local published variable representing polarity in a binary substrate.
+- **Published field:** `s[i] ∈ {−1, +1}`
 
-𝑠
-𝑖
-∈
-{
-−
-1
-,
-+
-1
-}
-s
-i
-	​
-
-∈{−1,+1}
-
-Layer 2 — Triad (Mediation / Metastable Operator)
-
+### Layer 2 — Triad (Mediation / Metastable Operator)
 A local hidden mediator that resolves ambiguity and sustains metastability without global coordination.
 
 Two interchangeable implementations are defined (choose one per run):
+- **Triad A (Phase):** `p[i] ∈ {0, 1}` (local phase / parity / ambiguity resolver)
+- **Triad B (Carrier):** `acc[i] ∈ ℝ` (local integrator producing 1-bit pulses)
 
-Triad A: Local phase bit 
-𝑝
-𝑖
-∈
-{
-0
-,
-1
-}
-p
-i
-	​
+### Layer 3 — Observer (Intervention / Measurement)
+A separate operator that can inject localized constraints/flux and perform measurement transforms. Observer input is optional; the closed system must remain active without it.
 
-∈{0,1}
+---
 
-Triad B: Local integrator/carrier 
-𝑎
-𝑖
-∈
-𝑅
-a
-i
-	​
+## 4. Substrate and Topology
 
-∈R with 1-bit pulse output (sigma-delta / pulse-density)
+### 4.1 Lattice
+- 2D grid `W × H` with toroidal wrap (default).
+- Neighborhood: radius `r` (default `r = 2` → 5×5 excluding center).
 
-Layer 3 — Observer (Intervention / Measurement)
+### 4.2 Update semantics (event-driven)
+At each measurement frame, perform `N` local update events:
+- pick random cell `i`
+- read neighbor states (in-place or from snapshot)
+- compute local rule
+- write updated variables for cell `i`
 
-A separate operator that can inject localized constraints/flux and perform measurement transforms. The observer is optional; the closed system must remain active without it.
+This yields a **partial order of events**, not a synchronous global step.
 
-4. Substrate and Topology
-4.1 Lattice
+### 4.3 Read/write regimes
+- **Async in-place:** each event reads the latest published neighbor values.
+- **Snapshot-per-frame:** capture `sSnapshot = s.slice()` once per frame; all events read snapshot.
 
-2D grid 
-𝑊
-×
-𝐻
-W×H with toroidal wrap (default).
+Either is valid; snapshot mode improves interpretability.
 
-Neighborhood: radius 
-𝑟
-r (default 
-𝑟
-=
-2
-r=2 → 5×5 local context excluding center).
+---
 
-4.2 Update Semantics
+## 5. Flux in a Binary Substrate
 
-Event-driven: at each measurement frame, perform 
-𝑁
-N local update events on randomly sampled cells.
+The practical problem: binary machines “step” states; they do not naturally “flux” ternary. PhaseCube treats ternary as **emergent measurement**, not stored trit.
 
-No global “physics step.” The only ordering is the partial order of events.
+### 5.1 Triad A — Local phase mediation
+Each cell holds `p[i]` used only in ambiguous contexts. Phase flips under stress and may diffuse.
 
-Two read/write regimes:
+- Benefit: simple, close to early parity designs.
+- Requirement: **local** phase only (no global god-bit).
 
-In-place async: each event reads the latest published neighbor values.
+### 5.2 Triad B — Pulse-density carrier (sigma-delta; recommended)
+Each cell holds an integrator `acc[i]` and publishes 1-bit pulses `s[i]`.
 
-Snapshot-per-frame: all events read a snapshot of 
-𝑠
-s captured at frame start.
+**Publish:**
+- `s[i] = sign(acc[i]) ∈ {−1, +1}`
 
-Either is acceptable; snapshot mode improves interpretability.
+**Feedback:**
+- `acc[i] ← acc[i] + drive − q * s[i]`
 
-5. Flux in a Binary Substrate
+**Observation (ternary proxy):**
+Compute a low-pass filtered mean `avg[i]`:
+- render as `+1` if `avg[i] > θ`
+- render as `−1` if `avg[i] < −θ`
+- else render `0`
 
-The core practical problem: a binary machine “steps” states; it does not naturally “flux” ternary. PhaseCube treats ternary as emergent measurement rather than stored trit.
+This matches the intent: **ternary flux emerges from binary pulses**.
 
-5.1 Triad A: Local Phase Bit (minimal carrier hack, localized)
+---
 
-Each cell holds a hidden phase bit 
-𝑝
-𝑖
-p
-i
-	​
-
- used only to resolve ambiguous local contexts. Phase can flip under high stress and can optionally diffuse.
-
-Benefits: simple, close to earlier parity designs.
-
-Risk: if global, it becomes nonlocal. v0.2 requires local phase only.
-
-5.2 Triad B: Pulse-Density Carrier (sigma-delta; recommended)
-
-Each cell holds an integrator 
-𝑎
-𝑖
-a
-i
-	​
-
- and publishes a 1-bit pulse 
-𝑠
-𝑖
-s
-i
-	​
-
-. The “ternary” state is read as a local time average.
-
-Publish:
-
-𝑠
-𝑖
-=
-s
-i
-g
-n
-(
-𝑎
-𝑖
-)
-∈
-{
-−
-1
-,
-+
-1
-}
-s
-i
-	​
-
-=sign(a
-i
-	​
-
-)∈{−1,+1}
-
-Feedback:
-
-𝑎
-𝑖
-←
-𝑎
-𝑖
-+
-Δ
-𝑎
-−
-𝑞
-⋅
-𝑠
-𝑖
-a
-i
-	​
-
-←a
-i
-	​
-
-+Δa−q⋅s
-i
-	​
-
-
-Observation (ternary proxy):
-
-𝑠
-ˉ
-𝑖
-s
-ˉ
-i
-	​
-
- = low-pass filtered average of 
-𝑠
-𝑖
-s
-i
-	​
-
-
-Render as:
-
-𝑠
-ˉ
-𝑖
->
-𝜃
-⇒
-+
-1
-s
-ˉ
-i
-	​
-
->θ⇒+1
-
-𝑠
-ˉ
-𝑖
-<
-−
-𝜃
-⇒
-−
-1
-s
-ˉ
-i
-	​
-
-<−θ⇒−1
-
-else 
-0
-0
-
-This matches the intended story: ternary flux emerges from binary pulses.
-
-6. Core Local Rule Family
+## 6. Core Local Rule Family
 
 PhaseCube is defined as a family of rules built from:
+- neighborhood influence
+- ambiguity resolution (Triad layer)
+- curvature/stress detection
+- anti-singularity shedding + redistribution
 
-a neighborhood influence measure,
+### 6.1 Neighborhood influence
+Compute:
+- `Σ(i) = Σ s[j]` over neighborhood `N(i)`
+- optional structural stats: sign mix, edge density, junction detection
 
-an ambiguity region,
+### 6.2 Ambiguity region
+When `Σ(i)` is near 0 (weak/competing influence), do not “step a trit.” Use the Triad:
+- Triad A: resolve by `p[i]`
+- Triad B: integrator decides the next pulse
 
-a curvature/stress measure,
+### 6.3 Curvature/stress proxy (singularities forbidden)
+Model “curvature approaching infinity” as a local stress condition (not mere uniformity). Practical proxies:
+- **Edge density:** count neighbors with `s[j] != s[i]`
+- **Junction score:** strong presence of both signs + high edge density
+- **Integrator stress (Triad B):** large `|acc[i]|` under disagreement
 
-an anti-singularity shedding response.
+---
 
-6.1 Neighborhood influence
+## 7. Anti-Singularity: Shedding and Redistribution
 
-Compute at cell 
-𝑖
-i:
+When curvature/stress exceeds a threshold, the system **must shed energy** and **redistribute**. It can never reach “perfect.”
 
-Σ
-𝑖
-=
-∑
-𝑗
-∈
-𝑁
-(
-𝑖
-)
-𝑠
-𝑗
-Σ
-i
-	​
-
-=∑
-j∈N(i)
-	​
-
-s
-j
-	​
-
-
-Optional structural stats: sign mix, edge density, junction detection.
-
-6.2 Ambiguity region
-
-When influence is weak/competing (i.e., 
-Σ
-𝑖
-Σ
-i
-	​
-
- near 0), do not “step” a trit. Use the Triad layer:
-
-Triad A: resolve by local phase 
-𝑝
-𝑖
-p
-i
-	​
-
-
-Triad B: let the integrator decide pulse output
-
-6.3 Curvature / singularity proxy
-
-Singularities are forbidden. In PhaseCube, “singularity pressure” is modeled as local curvature/stress rather than “uniformity.” Practical proxies include:
-
-Edge density: how many neighbors disagree with the center.
-
-Junction score: strong presence of both signs in neighborhood plus high edge density.
-
-Integrator stress (Triad B): large 
-∣
-𝑎
-𝑖
-∣
-∣a
-i
-	​
-
-∣ under high disagreement indicates stored strain.
-
-6.4 Anti-singularity shedding (must be local and redistributive)
-
-When curvature/stress exceeds threshold, the system must shed and redistribute—it cannot approach a perfect state. “Spin” is treated as one possible shedding channel.
+Design requirement:
+- Shedding must be **local** and preferably **propagating** (along overlap manifolds / gradients), not global instantaneous correction.
 
 Operational behaviors (choose one or combine lightly):
+- **Redistribution wave (Triad B):** dump part of `acc[i]` into neighbors preferentially along strong gradients.
+- **Phase shock (Triad A):** flip `p[i]` and probabilistically propagate phase diffusion outward like a relief front.
+- **Dipole shedding:** emit paired opposite disturbances locally to preserve statistical neutrality.
 
-Redistribute integrator energy: dump portion of 
-𝑎
-𝑖
-a
-i
-	​
+**Spin as shedding channel (hypothesis):**
+Persistent rotational dynamics can delay breakdown by continuously shedding/redistributing stress.
 
- into neighboring 
-𝑎
-𝑗
-a
-j
-	​
+---
 
- along high-gradient directions.
+## 8. Dynamic Knotting and the Matter Boundary
 
-Phase shock: flip 
-𝑝
-𝑖
-p
-i
-	​
+### 8.1 v0.2 scope: force-process first
+v0.2 primarily models **force-process interactions** in a pre-matter field. Matter is introduced only as an emergent boundary condition.
 
- and propagate a small probability of phase copying outward (a wavefront).
+### 8.2 Knotting is dynamic (not spontaneous)
+Matter-like knots are permitted only at **nodal branch/intersect/pinch points** that persist.
 
-Dipole shedding: emit paired opposite-sign disturbances locally to preserve global neutrality statistically.
+Define a **pinch detector**:
+- high junction score (both signs present strongly)
+- high curvature/stress
+- sustained across events
 
-This replaces global-parity “kicks” with propagating local relief.
+Implement via local accumulator:
+- `pinchScore[i] += 1` while pinch holds; decays otherwise
+- nucleate a knot if `pinchScore[i] > K`
 
-7. Dynamic Knotting and the Matter Boundary
-7.1 Matter is not a base state (in v0.2)
-
-The simulator uses matter-like language for intuition, but v0.2 models force-process interactions. Matter is introduced only as an emergent boundary condition at special events.
-
-7.2 Knot formation is dynamic, not spontaneous
-
-Knot creation occurs only at nodal branch/intersect/pinch points that persist.
-
-Define a pinch detector:
-
-high junction score (both signs strongly present)
-
-high curvature/stress
-
-sustained for a minimum persistence count (event-based, no global time required)
-
-This persistence count is a local accumulator:
-
-pinchScore[i] += 1 when pinch holds; decays otherwise.
-
-create a knot when pinchScore[i] > K.
-
-7.3 Knot semantics: partial closure over itself
-
-Once created, a knot is treated as a new entity with backreaction.
-
-Matter is when the process partially closes over itself—running a local instance of the same relational grammar with new effective degrees of freedom (charge/spin/phase).
+### 8.3 Canonical statement
+> **Matter is when the process partially closes over itself—running a local instance of the same relational grammar with new effective degrees of freedom (charge/spin/phase).**
 
 Interpretation:
+- once knotted, it does not strictly obey the same micro-rules that produced it
+- it introduces new degrees of freedom and back-reacts on the surrounding field
 
-the knot no longer obeys the exact same update rule as the open field that formed it;
+---
 
-it introduces new degrees of freedom (internal state) and couples to the external field via backreaction.
+## 9. Recursion: “One Force” Running an Instance of Itself
 
-8. Recursion: “One Force” Running an Instance of Itself
+Conjecture: the field is one relational grammar; “EM/plasma behavior” is a **matter effect** (an effective regime that appears when knots exist).
 
-A central conjecture: the field is a single relational grammar; “forces” like EM/plasma appear as matter effects, i.e., behaviors that only exist once knots exist.
+### 9.1 Minimal internal DOF for knots
+Each knot maintains a minimal “internal PhaseCube” analogue:
+- `k.q ∈ {−1, +1}` (charge sign proxy)
+- `k.phase` or `k.acc` (spin/phase proxy)
+- `k.m` (coupling strength / radius)
 
-8.1 Knot internal degrees of freedom (minimal)
+This is “an instance of the game inside the game.”
 
-Each knot maintains an internal mini-state analogous to Dyad/Triad:
+### 9.2 Backreaction (field warps around knots)
+Knots influence the surrounding field without closing it off:
+- modify coupling strength locally (stiffen/soften gradients)
+- bias ambiguity resolution near the knot
+- emit structured pulses (spin as persistent shedding)
+- redirect redistribution paths along overlap manifolds
 
-k.q ∈ {−1,+1} (charge sign proxy)
+### 9.3 Qualitative EM/plasma analogy
+- “Charge” is consistent bias in mediation/response fields.
+- “Spin” is circulating carrier dynamics that shed stress.
+- “Plasma-like” regimes appear when many knots overlap.
 
-k.φ or k.p (spin/phase proxy; can be discrete or continuous)
+No claim of Maxwell/MHD fidelity; this is an emergent interaction analogy.
 
-k.m (strength / coupling radius)
+---
 
-This is the “instance of the game inside the game.”
+## 10. Observer Operator
 
-8.2 Backreaction (external coupling)
-
-Knots influence the outer field locally without “closing it off”:
-
-modify coupling strength near knot (stiffen/soften gradients)
-
-bias ambiguity resolution (local phase bias)
-
-emit rotating pulses (spin shedding channel)
-
-mediate redistribution paths (prefer overlap manifolds)
-
-8.3 EM/plasma analogy (qualitative)
-
-“Charge” manifests as consistent directional bias in the surrounding mediation field.
-
-“Spin” manifests as circulating carrier dynamics (persistent rotational shedding).
-
-“Plasma-like” behavior appears when many knots exist and their backreaction fields overlap.
-
-This is not claimed to match Maxwell/MHD; it is an effective descriptor for emergent interaction patterns.
-
-9. Observer Operator
-9.1 Intervention
-
+### 10.1 Intervention (aware influence)
 Observer can locally influence:
+- Triad A: set/flip local phase `p[i]`
+- Triad B: add bias to `acc[i]` or inject dither
 
-Triad A: set/flip local phase 
-𝑝
-𝑖
-p
-i
-	​
+This is conceptually separate from the closed dynamics.
 
+### 10.2 Measurement / collapse
+“Collapse” is a visualization operator unless explicitly configured to back-react. Default is strict separation.
 
-Triad B: add bias to integrator 
-𝑎
-𝑖
-a
-i
-	​
+---
 
-, or inject dither
+## 11. Expected Phenomenology
 
-This models an agent altering local constraints intentionally (distinct from the closed dynamics).
+**Closed dynamics (no observer):**
+- rapid macro-domain emergence
+- persistent filaments/webs; active boundaries
+- anti-singularity shedding prevents perfect lock
+- pinch points form; optional knot nucleation (if enabled)
+- knots backreact, producing long-lived structured interactions
 
-9.2 Measurement / collapse
+**With observer input:**
+- local edits seed or steer pinch formation
+- effects propagate preferentially along overlap gradients
 
-“Collapse” is a visualization operator unless explicitly configured to back-react. The model maintains a strict separation unless intentionally violated.
+---
 
-10. Expected Phenomenology
+## 12. Diagnostics (Minimal, Human-Friendly)
 
-With no observer input:
+Recommended live measures:
+- **Boundary length:** count edges where `s[i] != s[neighbor]`
+- **Junction count:** number of high-mix, high-edge neighborhoods (pinch candidates)
+- **Mean bias:** drift monitor (global)
+- **Flip rate / variance:** local “temperature” proxy
+- **Knot count / lifetimes:** if knotting enabled
 
-rapid emergence of macro domains
+---
 
-persistent filaments/webs with active boundaries
+## 13. Parameters (POC Defaults)
 
-avoidance of static absorbing states via shedding
+- Grid: `120 × 120` torus
+- Neighborhood radius: `r = 2`
+- Events per render: `N = 600` (tune)
+- Triad mode: **B (pulse-density)** recommended; **A (local phase)** supported
+- Shedding thresholds: tuned to prevent lock-in without exploding into noise
+- Knotting: **disabled by default**, enabled for matter-boundary experiments
 
-formation of pinch points; occasional knot nucleation (if enabled)
+---
 
-knots backreact, creating long-lived, structured interaction regions
+## 14. Limitations and Open Questions
 
-With observer input:
+- **Curvature proxy:** mapping local statistics to “stress” is design-dependent.
+- **Shedding routing:** how best to bias redistribution along overlap manifolds remains experimental.
+- **Knot rulebook:** define internal knot dynamics that remain thermodynamically honest (no free energy).
+- **Layer depth:** deeper arities are conjectured; POC compresses them into the Triad mediator.
 
-local edits seed or steer pinch formation
+---
 
-effects propagate preferentially along overlap gradients
+## 15. Roadmap (Incremental)
 
-11. Diagnostics (Minimal, Human-Friendly)
+1. Replace any global carrier/parity with **local mediation** (Triad A) or **pulse-density carrier** (Triad B).  
+2. Implement curvature-based shedding as **local redistribution waves**.  
+3. Add `pinchScore` and deterministic knot nucleation gates (dynamic, not spontaneous).  
+4. Add knot objects with minimal internal DOF (charge/spin/phase) + backreaction.  
+5. Observe whether knot networks reproduce stable higher-level “force” behaviors.  
+6. Explore arity variants (3/5/11/13) by altering neighborhood sampling or mediator cardinality.
 
-Recommended measures that can be displayed live:
+---
 
-boundary length (edge density)
+## Closing
 
-junction count (pinch candidates)
-
-mean bias (for global drift monitoring)
-
-knot count + knot lifetime distribution
-
-local “temperature” proxy (variance of 
-𝑠
-ˉ
-s
-ˉ
- or event-to-event flip rate)
-
-12. Parameterization (POC defaults)
-
-Grid: 120×120 torus
-
-Neighborhood radius: 2
-
-Events per render: 600 (tune per device)
-
-Triad mode: B (sigma-delta) recommended; A supported
-
-Shedding thresholds: tuned to prevent lock-in without exploding noise
-
-Knotting: disabled by default; enabled for “matter boundary” experiments
-
-13. Limitations and Open Questions
-
-Curvature proxy choice: the mapping from local stats to “curvature/stress” is model-dependent.
-
-Shedding dynamics: how to best route redistribution along overlap manifolds remains an experimental design question.
-
-Knot rulebook: defining knot internal dynamics that remain thermodynamically honest (no free energy) is critical.
-
-Layer depth: deeper “odd prime arity” structures are conjectured but intentionally compressed into the Triad layer for this POC.
-
-14. Roadmap (Incremental)
-
-Replace any global carrier/parity with local mediation (Triad A) or pulse-density carrier (Triad B).
-
-Implement curvature-based shedding as redistribution waves (local only).
-
-Add pinchScore and deterministic knot nucleation gates (dynamic, not spontaneous).
-
-Add knot objects with minimal internal state (charge/spin/phase) and backreaction.
-
-Observe whether knot networks reproduce stable higher-level “force” behaviors.
-
-Explore arity variants (3/5/11/13) by altering neighborhood sampling or mediator state cardinality.
-
-Closing Tagline
-
-The Universe is the Universal Computer—and the simulation it is running.
+**The Universe is the Universal Computer—and the simulation it is running.**  
 In PhaseCube terms: one relational grammar, self-hosting through partial closure, with objects as metastable knots that rerun the same game inside themselves.
